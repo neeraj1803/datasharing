@@ -1,0 +1,7 @@
+test <- function(directory,pollutant,id) {
+	all_files <- list.files(getwd(),full=T)
+	all_data <- lapply(all_files, read.csv, header=T)
+	data <- do.call("rbind",all_data)
+	colMeans(data[pollutant],na.rm=T)
+}
+	
